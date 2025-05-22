@@ -1,0 +1,21 @@
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Terraform variables files
+*.tfvars
+
+# AWS CLI
+awscliv2.zip
+
+# Shell scripts backup
+*~ 
+
+# IDE / OS files
+.DS_Store
+.idea/
+*.swp
+
+# Logs
+*.log
