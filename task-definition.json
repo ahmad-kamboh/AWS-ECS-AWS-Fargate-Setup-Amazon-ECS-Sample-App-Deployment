@@ -1,0 +1,22 @@
+{
+  "family": "sample-fargate",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::123456789012:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "fargate-app",
+      "image": "public.ecr.aws/docker/library/httpd:latest",
+      "portMappings": [
+        { "containerPort": 80, "protocol": "tcp" }
+      ],
+      "essential": true,
+      "entryPoint": ["sh", "-c"],
+      "command": [
+        "/bin/sh -c \"echo '<html><head><title>Amazon ECS Sample App</title></head><body><h1>Congratulations!</h1><p>Running on Fargate.</p></body></html>' > /usr/local/apache2/htdocs/index.html && httpd-foreground\""
+      ]
+    }
+  ]
+}
